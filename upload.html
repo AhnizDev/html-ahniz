@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/3fe880a5e25f1.js" data-cmp-host="c.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
+
+ <title>Upload files Clients</title>
+ <link rel="shortcut icon"  href="images/cr.gif" type="image/x-icon">
+ <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+</head>
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PG456786V6"></script> 
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date()); gtag('config', 'G-PG456786V6');
+</script>
+
+ <body bgcolor="#f0f8ff"style="color:#FFF">
+ <center>
+
+ <!-- =======top ======= ===============================================================================================================-->
+  <footer style="  bottom: 0; left: 0; right: 0;"  id="footer">
+    <center>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+      <div class="copyright">
+         
+            <font size="4" color="steelblue" face="Verdana"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to <i><b>AhnizTech</b></i> Customer Service</b></font>
+      
+        </div>
+        <div class="credits">
+          
+          <!--Designed by <a href="https://isrom-dz.com/">Isrom</a>-->
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            
+      <a href="/"><font color="steelblue" size="4" face="Verdana"><b>&nbsp;&nbsp;&nbsp;</b></font></a>
+       <font size="4" color="steelblue" face="Verdana"><b>Home page</b></font>
+      </div>
+    </div>
+     </center>
+  </footer><!-- End top -->
+<!-- ======= End top ======= ===============================================================================================================-->
+
+
+<br/>
+<br/>
+<center>
+<SCRIPT>
+function clock() {
+    var days = ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    var months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+    localTime     = new Date();
+    date      = localTime.getDate();
+    day       = localTime.getDay();
+    full_year = localTime.getFullYear();
+    hours     = localTime.getHours();
+    minutes   = localTime.getMinutes();
+    month     = localTime.getMonth();
+    seconds   = localTime.getSeconds();
+    value     = "";
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    value = days[day] + " " + date + " " + months[month] + " " + full_year + " " + hours + ":" + minutes + ":" + seconds;
+   
+    document.clock.date.value = value ;
+   
+    setTimeout(clock,1000);
+}
+</SCRIPT>
+<STYLE TYPE="text/css">
+form{
+   display:inline;
+}
+.style { cursor:pointer;text-align:center;line-height :30px;height:40px;width:100%;width:380px;font-weight:bold;border-width:0;background-color:#f0f8ff;color:#0c2136;line-height: 100px;font-weight: bold;font-weight: bold;font-family: "Times New Roman", Times, serif;  font-size:20px; }
+</STYLE>
+
+<!--  Charge la fonction dans le corps de la page  -->
+<BODY onLoad="clock()">
+<!--  Affiche l'heure  -->
+<form name="clock" onSubmit="0">
+<input type="text" name="date" size="28" readonly="true" class="style">
+</form>
+</center>
+</body>
+
+</br>
+</br>
+</br>
+<section style="border-radius:15px; width:480px; height:350px;background:#f8f9fa;text-align:center;border:2px solid teal;">
+<div style="display:flex;justify-content:center;align-items:center;">
+<br></br></br></br></br></br></br></br></br></br></br>
+
+<?php
+/**
+ * ressource connect_ftp ( string $host , string $user , string $password )
+ * connect_ftp() opens a FTP connection to the specified host.
+ * Return : a FTP stream on success or FALSE on error
+*/
+mysqli_connect("localhost", "u866442872_khel","Khel3210", "u866442872_gestioncabinet");
+$host = "localhost";
+$user = "u866442872_khel";
+$password ="Khel3210";
+
+function connect_ftp($host, $user, $password) {
+      $ftp_stream = @ftp_connect($host); // Connexion
+      $login      = @ftp_login($ftp_stream, $user, $password); // Identification
+       
+      return !$login ? FALSE : $ftp_stream;
+}
+ 
+/**
+ * bool upload_ftp ( ressource $ftp_stream, array $file [, string $upload_dir = FALSE] )
+ * upload_file() puts a local file to the specified FTP server.
+ * Return : TRUE on success or FALSE on failure
+ */
+function upload_ftp($ftp_stream, $file, $upload_dir = FALSE) {
+      $destination = isset($upload_dir) ? '/' . $upload_dir . '/' . $_FILES['fichier']['name'] : '/'.$_FILES['fichier']['name']; // Génération du répertoire d'upload
+       
+      return ftp_put($ftp_stream, $destination, $_FILES['fichier']['tmp_name'], FTP_BINARY); // Chargement d'un fichier
+}
+ 
+if(!empty($_FILES['fichier']['name'])) {
+      if($ftp_stream = connect_ftp('46.17.172.225', 'u866442872', 'Khel3210')) {
+            if(upload_ftp($ftp_stream, $_FILES['fichier'], 'public_html/ftp_dossiers')) {
+                echo "<legend><font color=\"green\" size=\"3\" face=\"Verdana\"><i>Votre fichier a été envoyé avec succès. <hr style =\"border-color:teal; width:50px;\"> Merci.</i></font></legend>";
+             //echo "<legend><font color=\"green\" size=\"3\" face=\"Verdana\"><b>Transfert réalisé avec succès.</b></font></legend>\n";
+            // echo"<font color=\"green\" size=\"3\" face=\"Verdana\"><b>Merci.</b></font>";
+            } else {
+                  echo "<legend><font color=\"red\" size=\"3\" face=\"Verdana\">Désolé, problème d'envoi merci de vérifier vos fichiers</font></legend>";
+            }
+            ftp_close($ftp_stream); // Fermeture du flux FTP
+      } else {
+            echo "<legend><font color=\"red\" size=\"3\" face=\"Verdana\">Désolé, la connexion FTP a échoué !</font></legend>";
+      }
+}
+?>
+</div>
+</section>
+<br>
+
+</center>
+<br />
+
+<center>
+<font color="black"  size="3" face="Verdana"> 📧 <a href="mailto:khelaf.hanifi@khelaf-hanifi.com">khelaf.hanifi@khelaf-hanifi.com</a> </font>
+<br />
+</br>
+<font face="Verdana" color="steelblue" size="4"> <b> Algiers, Béjaïa Algeria</b></font> </br>
+</center>
+
+<font color="black" size="3" face="Arial"> 
+
+<br>
+<br>
+<?php //echo $heure;echo "<br />"; ?></font>
+
+<br />
+<br><br>
+<br><br>
+<br><br>
+<br />
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div style="width:400px;" class="col-lg-3 col-md-6 footer-contact">
+            <h3><b>Mr. Hanifi Khelaf</b><br>Web Developer</h3>
+            <p><strong><b><img src="images/location.jpg" alt="location">&nbsp; </strong> Algiers, Béjaïa Algeria </b><br> 
+             
+              <div class="phone">
+               
+                <!-- <h4>Call:</h4> -->
+            <p><b><font color="black" ><b><font color="black" ><i class="icofont-phone"></i>&nbsp;</font ></b>📱 0770 19 02 18&nbsp;📱 0696 38 04 79</font ></b></p>
+              </div>
+              <strong><b><img src="images/email.jpg" alt="email">&nbsp;&nbsp; </strong><i class="email"> khelaf.hanifi@khelaf-hanifi.com </i></b><br>
+              <strong><b><img src="images/web.jpg" alt="web">&nbsp; </strong><a href="https://khelaf-hanifi.com/">www.khelaf-hanifi.com</a> </b>
+            </p>
+          </div>
+
+           
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;" class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+           Copyright &copy;  <strong><span> 2020 ∞ <i>AhnizTech</i>, WebDeveloper <i>Mr. <a href="https://khelaf-hanifi.com/">Hanifi Khelaf</a>.</i> &nbsp;All Rights Reserved. <a href="https://www.t.me/CallAhniz">Contact</a> </span></strong>
+        </div>
+        <div class="credits">
+          
+          <!--Designed by <a href="https://isrom-dz.com/">Isrom</a>-->
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="https://www.facebook.com/khelaf.hanifi/" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://x.com/HanifiKhelaf" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.instagram.com/khelaf.hanifi" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/khelaf-hanifi-51666549/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+<!--
+</br>
+<center>     
+<a href="/"><img src='images/hp.png' alt='Home page' /><font color="steelblue" size="4" face="Verdana"><b> Home page !</b></font></a>
+</center>
+-->
+</body>
+
+</html>
